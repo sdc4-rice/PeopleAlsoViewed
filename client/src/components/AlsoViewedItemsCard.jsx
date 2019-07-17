@@ -123,14 +123,14 @@ class AlsoViewedItemsCard extends React.Component {
     const { categoryId } = this.state;
 
     $.ajax({
-      url: `/api/alsovieweditems/categoryid/${categoryId}`,
+      url: `http://localhost:3004/api/alsovieweditems/categoryid/${categoryId}`,
       method: 'GET',
       success: (data) => {
         this.setState({
           alsoViewedItems: data, totalPages: calculatePages(data.length),
         });
       },
-      error: (err) => { console.log('error msg' + err); },
+      error: (err) => { console.log(err); },
     });
   }
 
